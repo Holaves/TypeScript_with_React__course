@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Card, { CardVariant } from './components/UI/Card';
+import UserList from './components/UI/UserList';
+import { IUser } from './types/types';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const users: IUser[] = [
+        {id: 1, name: 'Timur', email: 'timyr.gggd@gmail.com', address: {city: 'Temruk', street: 'Engelsa', zipcode: '121'}},
+        {id: 2, name: 'Darya', email: 'deanth@bk.com', address: {city: 'Temruk', street: 'Sovetskaya', zipcode: '121'}}
+    ]
+    return (
+        <div>
+            <Card onClick={(num) => console.log(num)} width='280px' height='300px' variant={CardVariant.primary}>
+                <button>Button</button>
+            </Card>
+            <UserList users={users}/>
+        </div>
+    );
+};
 
 export default App;
